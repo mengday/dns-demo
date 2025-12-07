@@ -1,0 +1,20 @@
+# 应用配置
+server:
+  port: 9001  # Consumer服务端口
+
+# Dubbo配置
+dubbo:
+  application:
+    name: dubbo3-consumer
+  registry:
+    address: nacos://127.0.0.1:8848
+    namespace: public
+    group: DEFAULT_GROUP
+  consumer:
+    timeout: 1000
+    check: false  # 启动时不检查提供者是否可用，避免启动失败
+  qos:
+    enable: false  # 禁用QOS服务，避免端口冲突
+
+# 应用配置
+key2: Consumer-Value

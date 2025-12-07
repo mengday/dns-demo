@@ -1,0 +1,22 @@
+package com.example.consumer.controller;
+
+import com.example.api.DemoService;
+import org.apache.dubbo.config.annotation.DubboReference;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DemoController {
+
+    @DubboReference(version = "1.0.0", timeout = 1000)
+    private DemoService demoService;
+
+    @Value("${key2}")
+    private String key2;
+
+    @GetMapping("/test")
+    public String tyronTest() {
+        return demoService.getString() + "-" + key2;
+    }
+}
