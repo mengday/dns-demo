@@ -11,10 +11,12 @@ public class DemoServiceImpl implements DemoService {
 
     @Value("${key1}")
     private String key1;
+    @Value("${server.port}")
+    private String port;
 
     @Override
     public String getString() {
         String key3 = RpcContext.getContext().getAttachment("key3");
-        return key1 + "-" + key3;
+        return key1 + "-" + key3 + "-" + port + "-" + System.currentTimeMillis();
     }
 }

@@ -1,6 +1,6 @@
 # 应用配置
 server:
-  port: 9000  # Provider服务端口
+  port: 9002
 
 # Dubbo配置
 dubbo:
@@ -14,7 +14,7 @@ dubbo:
       group: DEFAULT_GROUP
   protocol:
     name: dubbo
-    port: 20880  # Dubbo协议端口
+    port: -1
   scan:
     base-packages: com.example.provider.service  # 明确指定扫描包
 

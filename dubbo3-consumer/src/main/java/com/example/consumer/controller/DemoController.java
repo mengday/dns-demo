@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DemoController {
 
-    @DubboReference(version = "1.0.0", timeout = 1000, loadbalance = "roundrobin", mock = "return null")
+    @DubboReference(version = "1.0.0", timeout = 1000, loadbalance = "roundrobin", cluster = "failfast", mock = "return null")
     private DemoService demoService;
 
     @Value("${key2}")
