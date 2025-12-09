@@ -2,6 +2,7 @@ package com.example.provider.service;
 
 import com.example.api.DemoService;
 import org.apache.dubbo.config.annotation.DubboService;
+import org.apache.dubbo.rpc.RpcContext;
 import org.springframework.beans.factory.annotation.Value;
 
 
@@ -13,6 +14,7 @@ public class DemoServiceImpl implements DemoService {
 
     @Override
     public String getString() {
-        return key1;
+        String key3 = RpcContext.getContext().getAttachment("key3");
+        return key1 + "-" + key3;
     }
 }

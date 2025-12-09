@@ -6,15 +6,15 @@ server:
 dubbo:
   application:
     name: dubbo3-provider
+    qos-enable: false
   registry:
     address: nacos://127.0.0.1:8848
-    namespace: public
-    group: DEFAULT_GROUP
+    parameters:
+      namespace: public
+      group: DEFAULT_GROUP
   protocol:
     name: dubbo
     port: 20880  # Dubbo协议端口
   scan:
     base-packages: com.example.provider.service  # 明确指定扫描包
-  qos:
-    enable: false  # 禁用QOS服务，避免端口冲突
 
