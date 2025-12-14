@@ -1,5 +1,6 @@
 package com.example.consumer.controller;
 
+import com.alibaba.dubbo.common.Constants;
 import com.example.api.DemoService;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.rpc.RpcContext;
@@ -20,6 +21,7 @@ public class DemoController {
     @GetMapping("/test")
     public String test() {
         RpcContext.getContext().setAttachment("key3", "value3");
+        RpcContext.getContext().setAttachment(Constants.TAG_KEY, "tag9002");
         return demoService.getString() + "-" + key2;
     }
 }
