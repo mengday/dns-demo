@@ -7,6 +7,8 @@ dubbo:
   application:
     name: dubbo3-provider
     qos-enable: false
+    parameters:
+      env: prod
   registry:
     address: nacos://127.0.0.1:8848
     parameters:

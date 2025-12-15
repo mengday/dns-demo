@@ -1,6 +1,5 @@
 package com.example.consumer.controller;
 
-import com.alibaba.dubbo.common.Constants;
 import com.example.api.DemoService;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.rpc.RpcContext;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
 
     @DubboReference(version = "1.0.0", timeout = 1000, loadbalance = "roundrobin", cluster = "failfast",
-            mock = "return null", stub = "com.example.consumer.controller.DemoServiceStub")
+            mock = "return null", stub = "com.example.consumer.controller.DemoServiceStub", parameters = {"router", "grayRouter"})
     private DemoService demoService;
 
     @Value("${key2}")
@@ -21,7 +20,7 @@ public class DemoController {
     @GetMapping("/test")
     public String test() {
         RpcContext.getContext().setAttachment("key3", "value3");
-        RpcContext.getContext().setAttachment(Constants.TAG_KEY, "tag9002");
+//        RpcContext.getContext().setAttachment(Constants.TAG_KEY,"tag1");
         return demoService.getString() + "-" + key2;
     }
 }

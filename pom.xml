@@ -12,6 +12,7 @@
         <module>dubbo3-provider</module>
         <module>dubbo3-consumer</module>
         <module>dubbo3-api</module>
+        <module>dubbo3-mystarter</module>
     </modules>
 
     <properties>

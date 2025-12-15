@@ -1,0 +1,2 @@
+grayProviderFilter=com.example.mystarter.filter.GrayProviderFilter
+grayConsumerFilter=com.example.mystarter.filter.GrayConsumerFilter

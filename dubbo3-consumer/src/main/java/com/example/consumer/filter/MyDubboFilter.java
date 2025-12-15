@@ -1,5 +1,6 @@
 package com.example.consumer.filter;
 
+import com.example.mystarter.context.GrayContext;
 import org.apache.dubbo.common.constants.CommonConstants;
 import org.apache.dubbo.common.extension.Activate;
 import org.apache.dubbo.rpc.*;
